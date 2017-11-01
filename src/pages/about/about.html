@@ -7,5 +7,30 @@
 </ion-header>
 
 <ion-content padding>
+  <p><b>Your email:</b>{{userAboutInfo}}</p>
+  <p><b>Your email:</b>{{userAboutInfo}}</p>
+ <!-- <img [src]="_domSanitizer.bypassSecurityTrustUrl(cameraData)" *ngIf="photoTaken">
+  <img [src]="_domSanitizer.bypassSecurityTrustUrl(newUrlC)" *ngIf="newImageBool"> -->
+  <!-- <img [src]="cameraUrl" *ngIf="photoSelected">
+  <img [src]="cameraUrlImg" *ngIf="photoSelected"> -->
+  <!--<img [src]="_domSanitizer.bypassSecurityTrustUrl(newUrl)" *ngIf="photoSelected">
+  <button ion-button color="dark" full  (click)="openCamera()">Open camera</button>
+  <button ion-button color="dark" full  (click)="selectFromGallery()">Select from gallery</button>
+  <button ion-button color="dark" full  (click)="logOut()">Exit</button>
+  <button ion-button (click)="cropImage()" *ngIf="showBtnCrop">Crop</button>
+<p>test</p>-->
+  <!--<p>ImgGalery{{cameraUrl}}</p>
+  <p>CameraImg{{cameraData}}</p>-->
+
+    <button ion-button (click)="cropDone()">
+      crop
+    </button>
+    <button ion-button (click)="rotateImage()">Rotate</button>
+    <!--_domSanitizer.bypassSecurityTrustUrl(cameraUrlCropper) !== undefined && _domSanitizer.bypassSecurityTrustUrl(cameraUrlCropper) !== null-->
+    <div *ngIf="cameraUrlCropper !== null" >
+        <!--_domSanitizer.bypassSecurityTrustUrl(cameraUrlCropper)imgURI-->
+        <img #imageSrc [src]="_domSanitizer.bypassSecurityTrustUrl(cameraUrlCropper)" (load)="cropImage()" />
+    </div>
 
 </ion-content>
+

@@ -10,6 +10,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RegistrationProvider } from '../providers/registration/registration';
+import {HttpModule} from "@angular/http";
+//import {SecondPage} from "../pages/second/second";
+import { Camera} from '@ionic-native/camera';
+import { AuthUserProvider } from '../providers/auth-user/auth-user';
+import { GetTokenProvider } from '../providers/get-token/get-token';
+import {Crop} from "@ionic-native/crop";
+import {Base64} from "@ionic-native/base64";
 
 @NgModule({
   declarations: [
@@ -17,10 +25,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    //SecondPage
   ],
   imports: [
     BrowserModule,
+    HttpModule, 
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,12 +39,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    //SecondPage
   ],
   providers: [
     StatusBar,
+    Camera,
+    Base64,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Crop,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RegistrationProvider,
+    AuthUserProvider,
+    GetTokenProvider
   ]
 })
 export class AppModule {}

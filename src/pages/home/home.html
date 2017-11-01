@@ -4,14 +4,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding class="home">
+  <div *ngIf="registration">
+    <h1 style="text-align: center; margin-top: 20px;margin-bottom: 0;">Registration Forms</h1>
+    <form  (ngSubmit)="logForm()" [formGroup]="formRegistration">
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <button ion-button full type="submit" [disabled]="!formRegistration.valid" style="margin: 15px auto;display: inline;">Submit</button>
+    </form>
+  </div>
+
+
+  <div *ngIf="authorization">
+    <h1 style="text-align: center; margin-top: 20px;margin-bottom: 0;">Auth form</h1>
+    <form  (ngSubmit)="authUser()" [formGroup]="formAuthorization">
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!formAuthorization.valid" style="margin: 15px auto;display: inline;">Enter</button>
+    </form>
+  </div>
 </ion-content>
